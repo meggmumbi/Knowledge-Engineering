@@ -1,0 +1,960 @@
+@prefix : <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology> rdf:type owl:Ontology ;
+                                                                                   rdfs:comment "This is an ontology about Crop Production in relation with Climate Change" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasCountry
+:hasCountry rdf:type owl:ObjectProperty ;
+            rdfs:domain :CropYieldObservation ;
+            rdfs:range :Area .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasCrop
+:hasCrop rdf:type owl:ObjectProperty ;
+         rdfs:domain :CropYieldObservation ;
+         rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasPesticideUsage
+:hasPesticideUsage rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CropYieldObservation ;
+                   rdfs:range :PesticideUsage .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasWeatherCondition
+:hasWeatherCondition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :CropYieldObservation ;
+                     rdfs:range :WeatherCondition .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasYear
+:hasYear rdf:type owl:ObjectProperty ;
+         rdfs:domain :CropYieldObservation ;
+         rdfs:range :Year .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasAverageRainfall
+:hasAverageRainfall rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :WeatherCondition ;
+                    rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasAverageTemperature
+:hasAverageTemperature rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :WeatherCondition ;
+                       rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasPesticideAmount
+:hasPesticideAmount rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :PesticideUsage ;
+                    rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#hasYieldInHGHA
+:hasYieldInHGHA rdf:type owl:DatatypeProperty ;
+                rdfs:domain :CropYieldObservation ;
+                rdfs:range xsd:decimal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Area
+:Area rdf:type owl:Class ;
+      rdfs:comment "Region where the crop grows" .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#CropYieldObservation
+:CropYieldObservation rdf:type owl:Class ;
+                      rdfs:comment "Crop production per year" .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Item
+:Item rdf:type owl:Class ;
+      rdfs:comment "Crop being grown" .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#PesticideUsage
+:PesticideUsage rdf:type owl:Class ;
+                rdfs:comment "Pesticides used on crops per year in a country." .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#WeatherCondition
+:WeatherCondition rdf:type owl:Class ;
+                  rdfs:comment "Average rainfal and temperature in a country per year" .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Year
+:Year rdf:type owl:Class ;
+      rdfs:comment "period" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Angola
+:Angola rdf:type owl:NamedIndividual ,
+                 :Area .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#CropObservation2
+:CropObservation2 rdf:type owl:NamedIndividual ,
+                           :CropYieldObservation ;
+                  :hasCountry :Angola ;
+                  :hasCrop :Wheat ;
+                  :hasPesticideUsage :pu2 ;
+                  :hasWeatherCondition :wc2 ;
+                  :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+                  :hasYieldInHGHA 15455 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#CropYieldObservation1
+:CropYieldObservation1 rdf:type owl:NamedIndividual ,
+                                :CropYieldObservation ;
+                       :hasCountry :Angola ;
+                       :hasCrop :Wheat ;
+                       :hasPesticideUsage :PesticideUsage1 ;
+                       :hasWeatherCondition :weatherCondition1 ;
+                       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+                       :hasYieldInHGHA 9022 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Kenya
+:Kenya rdf:type owl:NamedIndividual ,
+                :Area .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Maize
+:Maize rdf:type owl:NamedIndividual ,
+                :Item .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#PesticideUsage1
+:PesticideUsage1 rdf:type owl:NamedIndividual ,
+                          :PesticideUsage ;
+                 :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Rice
+:Rice rdf:type owl:NamedIndividual ,
+               :Item .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#Wheat
+:Wheat rdf:type owl:NamedIndividual ,
+                :Item .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs10
+:obs10 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu10 ;
+       :hasWeatherCondition :wc10 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+       :hasYieldInHGHA 11258 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs11
+:obs11 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu11 ;
+       :hasWeatherCondition :wc11 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+       :hasYieldInHGHA 9022 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs12
+:obs12 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu2 ;
+       :hasWeatherCondition :wc2 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+       :hasYieldInHGHA 6706 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs13
+:obs13 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu3 ;
+       :hasWeatherCondition :wc3 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+       :hasYieldInHGHA 5404 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs14
+:obs14 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu5 ;
+       :hasWeatherCondition :wc5 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+       :hasYieldInHGHA 6736 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs15
+:obs15 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu5 ;
+       :hasWeatherCondition :wc5 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+       :hasYieldInHGHA 4687 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs16
+:obs16 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu6 ;
+       :hasWeatherCondition :wc6 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+       :hasYieldInHGHA 5091 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs17
+:obs17 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu7 ;
+       :hasWeatherCondition :wc7 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+       :hasYieldInHGHA 7946 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs18
+:obs18 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu8 ;
+       :hasWeatherCondition :wc8 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+       :hasYieldInHGHA 6614 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs19
+:obs19 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :PesticideUsage1 ;
+       :hasWeatherCondition :weatherCondition1 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+       :hasYieldInHGHA 7200 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs20
+:obs20 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu9 ;
+       :hasWeatherCondition :wc9 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+       :hasYieldInHGHA 7376 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs21
+:obs21 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu10 ;
+       :hasWeatherCondition :wc10 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+       :hasYieldInHGHA 7770 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs22
+:obs22 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Angola ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu11 ;
+       :hasWeatherCondition :wc11 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+       :hasYieldInHGHA 9467 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs23
+:obs23 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu12 ;
+       :hasWeatherCondition :wc12 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+       :hasYieldInHGHA 21217 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs24
+:obs24 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu13 ;
+       :hasWeatherCondition :wc13 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+       :hasYieldInHGHA 24827 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs25
+:obs25 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu14 ;
+       :hasWeatherCondition :wc14 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+       :hasYieldInHGHA 23131 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs26
+:obs26 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu15 ;
+       :hasWeatherCondition :wc15 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+       :hasYieldInHGHA 21875 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs27
+:obs27 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu16 ;
+       :hasWeatherCondition :wc16 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+       :hasYieldInHGHA 30940 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs28
+:obs28 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu17 ;
+       :hasWeatherCondition :wc17 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+       :hasYieldInHGHA 25845 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs29
+:obs29 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu18 ;
+       :hasWeatherCondition :wc18 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+       :hasYieldInHGHA 16665 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs3
+:obs3 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu3 ;
+      :hasWeatherCondition :wc3 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+      :hasYieldInHGHA 12442 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs30
+:obs30 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu19 ;
+       :hasWeatherCondition :wc19 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+       :hasYieldInHGHA 31991 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs31
+:obs31 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu20 ;
+       :hasWeatherCondition :wc20 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+       :hasYieldInHGHA 20415 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs32
+:obs32 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu21 ;
+       :hasWeatherCondition :wc21 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+       :hasYieldInHGHA 29720 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs33
+:obs33 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Wheat ;
+       :hasPesticideUsage :pu22 ;
+       :hasWeatherCondition :wc22 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+       :hasYieldInHGHA 27602 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs34
+:obs34 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu12 ;
+       :hasWeatherCondition :wc12 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+       :hasYieldInHGHA 15126 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs35
+:obs35 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu13 ;
+       :hasWeatherCondition :wc13 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+       :hasYieldInHGHA 19293 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs36
+:obs36 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu14 ;
+       :hasWeatherCondition :wc14 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+       :hasYieldInHGHA 16405 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs37
+:obs37 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu15 ;
+       :hasWeatherCondition :wc15 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+       :hasYieldInHGHA 17197 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs38
+:obs38 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu16 ;
+       :hasWeatherCondition :wc16 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+       :hasYieldInHGHA 18132 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs39
+:obs39 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu17 ;
+       :hasWeatherCondition :wc17 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+       :hasYieldInHGHA 13925 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs4
+:obs4 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasWeatherCondition :wc4 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+      :hasYieldInHGHA 10946 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs40
+:obs40 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu18 ;
+       :hasWeatherCondition :pu19 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+       :hasYieldInHGHA 12943 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs41
+:obs41 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu19 ;
+       :hasWeatherCondition :wc19 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+       :hasYieldInHGHA 17251 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs42
+:obs42 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu20 ;
+       :hasWeatherCondition :wc20 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+       :hasYieldInHGHA 15840 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs43
+:obs43 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu21 ;
+       :hasWeatherCondition :wc21 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+       :hasYieldInHGHA 17366 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs44
+:obs44 rdf:type owl:NamedIndividual ,
+                :CropYieldObservation ;
+       :hasCountry :Kenya ;
+       :hasCrop :Maize ;
+       :hasPesticideUsage :pu22 ;
+       :hasWeatherCondition :wc22 ;
+       :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+       :hasYieldInHGHA 16922 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs5
+:obs5 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu5 ;
+      :hasWeatherCondition :wc5 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+      :hasYieldInHGHA 10000 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs6
+:obs6 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu6 ;
+      :hasWeatherCondition :wc6 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+      :hasYieldInHGHA 10000 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs7
+:obs7 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu7 ;
+      :hasWeatherCondition :wc7 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+      :hasYieldInHGHA 10000 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs8
+:obs8 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu8 ;
+      :hasWeatherCondition :wc8 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+      :hasYieldInHGHA 10000 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#obs9
+:obs9 rdf:type owl:NamedIndividual ,
+               :CropYieldObservation ;
+      :hasCountry :Angola ;
+      :hasCrop :Wheat ;
+      :hasPesticideUsage :pu9 ;
+      :hasWeatherCondition :wc9 ;
+      :hasYear <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+      :hasYieldInHGHA 10959 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu10
+:pu10 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu11
+:pu11 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasAverageTemperature 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu12
+:pu12 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu13
+:pu13 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu14
+:pu14 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu15
+:pu15 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu16
+:pu16 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu17
+:pu17 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu18
+:pu18 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu19
+:pu19 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu2
+:pu2 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu20
+:pu20 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu21
+:pu21 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu22
+:pu22 rdf:type owl:NamedIndividual ,
+               :PesticideUsage ;
+      :hasPesticideAmount 1578 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu3
+:pu3 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu4
+:pu4 rdf:type owl:NamedIndividual ,
+              :PesticideUsage .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu5
+:pu5 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu6
+:pu6 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu7
+:pu7 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu8
+:pu8 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#pu9
+:pu9 rdf:type owl:NamedIndividual ,
+              :PesticideUsage ;
+     :hasPesticideAmount 40 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc10
+:wc10 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 1010 ;
+      :hasAverageTemperature 24.24 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc11
+:wc11 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 1010 ;
+      :hasAverageTemperature 24.55 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc12
+:wc12 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.61 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc13
+:wc13 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.92 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc14
+:wc14 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 17.29 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc15
+:wc15 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.92 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc16
+:wc16 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.6 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc17
+:wc17 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.66 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc18
+:wc18 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 17.3 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc19
+:wc19 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.82 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc2
+:wc2 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.79 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc20
+:wc20 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 16.9 ,
+                          630 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc21
+:wc21 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.84 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc22
+:wc22 rdf:type owl:NamedIndividual ,
+               :WeatherCondition ;
+      :hasAverageRainfall 630 ;
+      :hasAverageTemperature 16.91 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc3
+:wc3 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.22 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc4
+:wc4 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.41 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc5
+:wc5 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.14 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc6
+:wc6 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.24 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc7
+:wc7 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.27 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc8
+:wc8 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 24.33 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#wc9
+:wc9 rdf:type owl:NamedIndividual ,
+              :WeatherCondition ;
+     :hasAverageRainfall 1010 ;
+     :hasAverageTemperature 25.15 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#weatherCondition1
+:weatherCondition1 rdf:type owl:NamedIndividual ,
+                            :WeatherCondition ;
+                   :hasAverageRainfall 1010 ;
+                   :hasAverageTemperature 24.44 .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> rdf:type owl:NamedIndividual ,
+                                                                                                :Year .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
