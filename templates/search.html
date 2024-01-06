@@ -1,0 +1,43 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flask UI - Search Results</title>
+    <!-- Add a link to a custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add a link to a font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<h1>Search Results</h1>
+
+{% if results %}
+<table>
+    <tr>
+        <th>Country</th>
+        <th>Crop</th>
+        <th>Year</th>
+        <th>Yield</th>
+        <th>Temperature</th>
+        <th>Rainfall</th>
+        <th>Pesticide</th>
+    </tr>
+
+{% for result in results %}
+<tr>
+    <td>{{ result.country }}</td>
+    <td>{{ result.crop }}</td>
+    <td>{{ result.year }}</td>
+    <td>{{ result.yield }}</td>
+    <td>{{ result.temperature }}</td>
+    <td>{{ result.rainfall }}</td>
+    <td>{{ result.pesticide }}</td>
+</tr>
+{% endfor %}
+</table>{% else %}<p>No results found.</p>{% endif %}<a href="/">Back to home</a>
+</body>
+</html>

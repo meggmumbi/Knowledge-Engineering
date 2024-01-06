@@ -1,0 +1,99 @@
+/* style.css */
+/* Use a custom font for the whole page */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Center the content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Add some margin and padding to the body */
+body {
+    margin: 20px;
+    padding: 20px;
+    /* Add a background color with a gradient effect */
+    background: linear-gradient(to right, #E0FFFF, #AFEEEE);
+}
+
+/* Add some style to the h1 element */
+h1 {
+    color: #008B8B;
+    text-align: center;
+    /* Add a text shadow effect */
+    text-shadow: 2px 2px 4px #B0E0E6;
+}
+
+/* Add some style to the p element */
+p {
+    color: #333;
+    line-height: 1.5;
+    /* Add some margin to separate the paragraphs */
+    margin-bottom: 10px;
+}
+
+/* Add some style to the textarea element */
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    /* Add some padding to make the text more comfortable */
+    padding: 10px;
+    /* Add some border radius to make the corners rounded */
+    border-radius: 10px;
+    /* Add a border with a gradient color */
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #D6EEEE, #00FFFF);
+    border-image-slice: 1;
+    /* Add a box shadow effect */
+    box-shadow: 2px 2px 4px #B0E0E6;
+    /* Add a transition for the box-shadow property */
+    transition: box-shadow 0.3s;
+}
+
+/* Add a hover effect for the textarea element */
+textarea:hover {
+    /* Change the box shadow color to a darker shade */
+    box-shadow: 5px 5px 10px #008B8B;
+}
+
+/* Add some style to the button element */
+button {
+    padding: 10px 20px;
+    background-color: #00CED1;
+    color: white;
+    border: none;
+    /* Add some border radius to make the corners rounded */
+    border-radius: 10px;
+    cursor: pointer;
+    /* Add a box shadow effect */
+    box-shadow: 2px 2px 4px #B0E0E6;
+    /* Add a transition for the transform and box-shadow properties */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Add a hover effect for the button element */
+button:hover {
+    /* Change the background color to a darker shade */
+    background-color: #008B8B;
+    /* Rotate the button slightly */
+    transform: rotate(5deg);
+    /* Change the box shadow color to a lighter shade */
+    box-shadow: 5px 5px 10px #F0FFFF;
+}
+.sample-query {
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Change the style of the sample query links when the mouse is over them */
+.sample-query:hover {
+
+    cursor: pointer; /* Change the mouse cursor to a pointer */
+}

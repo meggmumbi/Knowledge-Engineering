@@ -1,0 +1,104 @@
+/* style.css */
+/* Use a custom font for the whole page */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Add some margin and padding to the body */
+body {
+    margin: 20px;
+    padding: 20px;
+    /* Add a background color with a gradient effect */
+    background: linear-gradient(to right,#FFF, #FFF);
+}
+
+/* Add some style to the h1 element */
+h1 {
+    color: #008B8B;
+    text-align: center;
+    /* Add a text shadow effect */
+    text-shadow: 2px 2px 4px #B0E0E6;
+}
+
+/* Add some style to the table element */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Add a box shadow effect */
+    box-shadow: 5px 5px 10px #B0E0E6;
+    /* Add a transition for the transform property */
+    transition: transform 0.5s;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #AFEEEE;
+
+}
+
+/* Add some style to the th and td elements */
+th, td {
+    padding: 10px;
+    /* Add a border with a gradient color */
+    border-width: 1px;
+    border-color: #ddd;
+    border-style: solid;
+    border-image: linear-gradient(to right, #D6EEEE, #00FFFF);
+    border-image-slice: 1;
+    /* Add a transition for the background-color property */
+    transition: background-color 0.5s;
+}
+
+/* Add a hover effect for the table rows */
+tr:hover {
+    /* Change the background color to a lighter shade */
+    background-color: #d3d3d3;
+    /* Scale up the row slightly */
+    transform: scale(1.05);
+}
+
+/* Add a hover effect for the table headers */
+th:hover {
+    /* Change the background color to a darker shade */
+    background-color: #d3d3d3;
+}
+
+/* Add a hover effect for the table cells */
+td:hover {
+    /* Change the background color to a different color */
+    background-color: #d3d3d3;
+}
+
+/* Add some style to the a element */
+a {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /* Add a border with a gradient color */
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #D6EEEE, #00FFFF);
+    border-image-slice: 1;
+    /* Add a background color with a gradient effect */
+    background: linear-gradient(to right, #00CED1, #87CEFA);
+    /* Add a box shadow effect */
+    box-shadow: 2px 2px 4px #B0E0E6;
+    /* Add a transition for the transform and box-shadow properties */
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+/* Add a hover effect for the a element */
+a:hover {
+    /* Scale up the element slightly */
+    transform: scale(1.1);
+    /* Change the box shadow color to a darker shade */
+    box-shadow: 5px 5px 10px #008B8B;
+}

@@ -1,0 +1,609 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hint: <http://www.bigdata.com/queryHints#> .
+@prefix bd: <http://www.bigdata.com/rdf#> .
+@prefix bds: <http://www.bigdata.com/rdf/search#> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology> a owl:Ontology ;
+	rdfs:comment "This is an ontology about Crop Production in relation with Climate Change" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Area> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Area> a owl:Class ;
+	rdfs:comment "Region where the crop grows" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropObservation2> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu2> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc2> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 15455 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> a owl:Class ;
+	rdfs:comment "Crop production per year" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation1> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage1> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/weatherCondition1> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 9022 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> a owl:DatatypeProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> ;
+	rdfs:range xsd:decimal .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> a owl:DatatypeProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> ;
+	rdfs:range xsd:decimal .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> a owl:ObjectProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Area> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> a owl:ObjectProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> a owl:DatatypeProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> ;
+	rdfs:range xsd:decimal .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> a owl:ObjectProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> a owl:ObjectProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> a owl:ObjectProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> a owl:DatatypeProperty ;
+	rdfs:domain <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> ;
+	rdfs:range xsd:decimal .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> a owl:Class ;
+	rdfs:comment "Crop being grown" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs10> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu10> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc10> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 11258 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs11> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu11> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc11> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 9022 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs12> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu2> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc2> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 6706 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs13> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu3> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc3> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 5404 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs14> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 6736 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs15> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs32> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu21> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc21> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 29720 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs33> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu22> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc22> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 27602 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs34> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu12> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc12> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 15126 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs35> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu13> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc13> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 19293 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs36> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu14> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc14> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 16405 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs37> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu15> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc15> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 17197 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs38> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu16> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc16> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 18132 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs39> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu17> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc17> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 13925 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs40> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu18> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu19> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 12943 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs41> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu19> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc19> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 17251 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs42> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu20> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc20> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 15840 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs43> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu21> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc21> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 17366 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs44> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu22> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc22> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 16922 .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs15> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 4687 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs16> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu6> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc6> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 5091 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs17> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu7> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc7> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 7946 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs18> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu8> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc8> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 6614 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs19> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage1> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/weatherCondition1> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 7200 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs20> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu9> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc9> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 7376 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs21> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu10> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc10> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 7770 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs22> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Maize> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu11> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc11> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 9467 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs3> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu3> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc3> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 12442 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs4> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc4> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10946 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs5> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc5> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10000 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs6> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu6> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc6> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10000 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs7> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu7> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc7> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10000 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs8> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> a owl:Class ;
+	rdfs:comment "period" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2012> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2013> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Year> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Area> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs23> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu12> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc12> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2002> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 21217 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs24> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu13> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc13> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2004> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 24827 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs25> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu14> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc14> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2005> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 23131 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs26> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu15> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc15> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2006> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 21875 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs27> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu16> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc16> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2007> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 30940 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs28> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu17> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc17> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2008> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 25845 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs29> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu18> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc18> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 16665 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs30> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu19> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc19> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2010> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 31991 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs31> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu20> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc20> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 20415 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs32> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Kenya> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs8> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu8> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc8> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2009> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10000 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs9> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCountry> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Angola> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasCrop> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideUsage> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu9> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasWeatherCondition> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc9> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYear> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology#2011> ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasYieldInHGHA> 10959 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> a owl:Class ;
+	rdfs:comment "Pesticides used on crops per year in a country." .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage1> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu10> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu11> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu2> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu3> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu4> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu5> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu6> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu7> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu8> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu9> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 40 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Rice> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Sorgum> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc10> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.24 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc11> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.55 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc2> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.79 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc3> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.22 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc4> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.41 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc5> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.14 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc6> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.24 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc7> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.27 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc8> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.33 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc9> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 25.15 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> a owl:Class ;
+	rdfs:comment "Average rainfal and temperature in a country per year" .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/weatherCondition1> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 1010 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 24.44 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Wheat> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/Item> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/obs44> a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/CropYieldObservation> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu12> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu13> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu14> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu15> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu16> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu17> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu18> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu19> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu20> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu21> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/pu22> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasPesticideAmount> 1578 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/PesticideUsage> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc12> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.61 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc13> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.92 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc14> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 17.29 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc15> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.92 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc16> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.6 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc17> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.66 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc18> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 17.3 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc19> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.82 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc20> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 , 16.9 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc21> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.84 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .
+
+<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/wc22> <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageRainfall> 630 ;
+	<http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/hasAverageTemperature> 16.91 ;
+	a <http://www.semanticweb.org/margaret.gichuhi/ontologies/2024/0/CropYieldOntology/WeatherCondition> , owl:NamedIndividual .

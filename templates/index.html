@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flask UI</title>
+    <!-- Add a link to a custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <!-- Add a link to a font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+   <script>
+        // Function to set the query in the textarea when a sample query is clicked
+        document.addEventListener("DOMContentLoaded", function() {
+            var sampleQueries = document.querySelectorAll('.sample-query');
+
+            sampleQueries.forEach(function(sampleQuery) {
+                sampleQuery.addEventListener('click', function() {
+                    document.getElementById('queryTextarea').value = sampleQuery.getAttribute('data-query');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Flask UI</h1> <p>This is a web application that allows you to access data from a .ttl file using key words or natural language.</p>
+    <p>A .ttl file is a text file that contains data in the Turtle format, which is a syntax for expressing structured information using the Resource
+        Description Framework (RDF). RDF is a standard model for data interchange on the Web.</p> <p>To use this application, you need to enter a query
+    in the textarea below. The query can be either a key word or a natural language sentence. A key word is a single word or a phrase that represents a
+    concept or an entity in the data. A natural language sentence is a grammatically correct sentence that expresses a question or a request about the data.</p>
+    <p>For example, if you want to find out the name of the crops grown in Kenya, you can enter either “crops in Kenya” as a key word or
+        “Which crops have the highest yield in Kenya in 2010?” as a natural language sentence. The application will search the .ttl file for the relevant data and return the answer to you.</p>
+    <form action="/search" method="post">
+        <textarea id="queryTextarea" name="query" placeholder="Enter your query here"></textarea><br/>
+        <button type="submit">Search</button>
+    </form>
+
+       <div>
+        <h2>Sample Queries:</h2>
+        <ul>
+            <li><a href="javascript:void(0);" class="sample-query" data-query="crops in Kenya">Crops in Kenya</a></li>
+            <li><a href="javascript:void(0);" class="sample-query" data-query="Which crop have the highest yield in Kenya in 2010?">Which crop have the highest yield in Kenya in 2010?</a></li>
+           <li><a href="javascript:void(0);" class="sample-query" data-query="How does the average temperature affect the yield of Wheat in Angola?">How does the average temperature affect the yield of Wheat in Angola?</a></li>
+            <li><a href="javascript:void(0);" class="sample-query" data-query="Which countries use more than 50 units of pesticide on Wheat in 2010?">Which countries use more than 50 units of pesticide on Wheat in 2010?</a></li>
+            <li><a href="javascript:void(0);" class="sample-query" data-query="What is the Maize production in Kenya in 2013?">What is the Maize production in Kenya in 2013?</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
